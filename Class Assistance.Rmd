@@ -1,0 +1,30 @@
+---
+title: "Classmate Assistance"
+author: "Habib Khan (edited: John Kellogg"
+date: "2/23/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(pracma)
+```
+## C21 (pg498) 
+
+#### Determine if the linear transformation $S:\quad { P }_{ 3 }\rightarrow { M }_{ 22 }$ is (a) injective, (b) surjective,(c) invertible.
+
+$$S(a+bx+c{ x }^{ 2 }+d{ x }^{ 3 })=\left[ \begin{matrix} -a & +4b & +c & +2d \\ a & +5b & -2c & +2d \end{matrix}\quad \quad \begin{matrix} 4a & -b & +6c & -d \\ a &  & +2c & +5d \end{matrix} \right]$$
+
+```{r}
+# Creating matrix into S
+(S <- matrix(c(-1,4,1,1,4,-1,5,0,1,6,-2,2,2,-1,2,5), 4,4))
+```
+
+```{r}
+# RREF
+(answer <- rref(S))
+```
+
+#### Answer:
+
+The identity matrix is nonsingular and have null space therefore it is injective. U’s dimension is 4 and kernel is 0 therefore it is also surjective. Lastly, transformation is injective and surjective therefore it is also invertible as well as per ILTIS theorem.
